@@ -8,8 +8,8 @@
 @if (session('message'))
 <div class="alert alert-success" role="alert">
     {{ session('message') }}
-    @endif
 </div>
+@endif
 <div class="row" style="margin-left:15px;margin-right:15px">
     <div class="col-lg-8 col-lg-offset-2 text-center">
         <h2>Get in Touch</h2>

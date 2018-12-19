@@ -15,7 +15,7 @@
                     <a class="page-scroll" href="#three">Gallery</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#four">About</a>
+                    <a class="page-scroll" href="/about">About</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="/contact">Contact</a>

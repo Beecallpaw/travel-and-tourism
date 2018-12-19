@@ -23,4 +23,5 @@ Route::post('/contact', 'ContactController@store');
 Route::post('/contact/delete/{id}', 'ContactController@delete')->name('contact.delete');
 Route::get('/messages', 'ContactController@list');
 
+Route::get('/about', 'AboutController@index');
 Route::resource('post', 'PostController');
