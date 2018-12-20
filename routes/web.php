@@ -13,15 +13,16 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home');
 
-Route::get('/admin', 'AdminController@getLoginForm');
-Route::post('/admin', 'AdminController@login');
+Route::get('admin', 'AdminController@getLoginForm')->name('login');
+Route::post('login', 'AdminController@login');
+Route::get('logout', 'AdminController@logout');
 
 Route::get('/contact', 'ContactController@create');
 Route::post('/contact', 'ContactController@store');
 Route::post('/contact/delete/{id}', 'ContactController@delete')->name('contact.delete');
-Route::get('/messages', 'ContactController@list');
+Route::get('/messages', 'ContactController@list')->middleware('admin');
 
 Route::get('/about', 'AboutController@index');
-Route::resource('post', 'PostController');
+Route::resource('posts', 'PostController');

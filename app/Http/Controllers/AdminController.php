@@ -21,10 +21,17 @@ class AdminController extends Controller
         $username = $request->get('username');
         $password = $request->get('password');
         if ($dbUsername=== $username && Hash::check($password, $dbPassword)) {
+            session(['is_admin' =>'admin']);
             return view('admin.home')->with('message', 'Login Successful. Welcome Admin');
         }
         return redirect()->back()->with('error','Login Failed. Please Try Again');
 
+    }
+    
+    public function logout()
+    {
+        session(['is_admin' => '']);
+        return redirect()->route('home');
     }
     
 }

@@ -19,6 +19,8 @@ class CreatePostsTable extends Migration
             $table->string('image');
             $table->string('description');
             $table->string('itinerary');
+            $table->integer('category_id')->unsigned();
+            $table->foreign('category_id')->references('id')->on('categories');
             $table->timestamps();
         });
     }

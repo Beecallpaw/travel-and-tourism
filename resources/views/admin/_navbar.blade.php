@@ -11,10 +11,15 @@
         <div class="navbar-collapse collapse" id="bs-navbar">
             <ul class="nav navbar-nav">
                 <li>
-                    <a class="page-scroll" href="#">Posts</a>
+                    <a class="page-scroll" href="{{route('posts.index')}}">Posts</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="/messages">Messages</a>
+                    <a class="page-scroll" href="messages">Messages</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a class="page-scroll" href="logout">Logout</a>
                 </li>
             </ul>
         </div>

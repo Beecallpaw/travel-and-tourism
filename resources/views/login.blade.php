@@ -2,7 +2,7 @@
 @section('title', 'Admin Login') 
 @section('content')
 
-<form action="/admin" method="post" id="admin-form">
+<form action="login" method="post" id="admin-form">
     @if (session('error'))
     <div class="alert alert-danger" role="alert">
         {{ session('error') }}
