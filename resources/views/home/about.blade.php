@@ -2,10 +2,16 @@
 @section('title', 'Contact Us') 
 @section('content')
     @include('partials.navbar')
-<section class="container-fluid" id="four">
+<section class="container-fluid">
         <div class="row">
             <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
                 <h2 class="text-center text-primary">About Us</h2>
+                <hr>
+                <div class="media fadeInLeft wow">
+                    <h3>Nepali Yatra</h3>
+                    <p style="text-align:left;">is an online Nepal Based travel agency committed in the mission of creating happy travelers from all over the world with
+                        broad smile and fuller satisfied heart.</p>
+                </div>
                 <hr>
                 <div class="media wow fadeInRight">
                     <h3>High Demand</h3>

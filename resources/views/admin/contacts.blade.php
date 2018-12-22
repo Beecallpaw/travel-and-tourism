@@ -11,6 +11,7 @@
                 <th>Email</th>
                 <th>Message</th>
                 <th>Created At</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -22,11 +23,18 @@
                         <td>{{$contact->email}}</td>
                         <td>{{$contact->message}}</td>
                         <td>{{$contact->created_at->diffForHumans()}}</td>
+                        <td>
+                            <form action="{{ route('contact.destroy', ['id'=>$contact->id]) }}" method="post">
+                            @method('DELETE') 
+                            @csrf
+                                <button type="submit" class='btn btn-danger'>Delete</a>
+                            </form>
+                        </td>
                     </tr>
                 @endforeach
             @else
             <tr>
-                <td colspan="5" class="text-center">There are no messages.</td>
+                <td colspan="6" class="text-center">There are no messages.</td>
             </tr>
             @endif
         </tbody>

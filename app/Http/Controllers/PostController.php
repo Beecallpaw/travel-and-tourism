@@ -61,7 +61,7 @@ class PostController extends Controller
             "description"   => $request->description,
             "itinerary"     => $request->itinerary,
             "category_id"   => $request->category_id,
-            'slug'          => str_slug($request->name),
+            "slug"          => str_slug($request->name),
         ]);
 
         Session::flash('success', 'Post Created Successfully.');

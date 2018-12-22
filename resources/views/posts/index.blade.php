@@ -35,8 +35,14 @@
                     <td>
                         {!! str_limit($post->itinerary, $limit=100, $end=' ... ') !!}
                     </td>
-                    <td>
-                        {{$post->category_id}}
+                    <td> 
+                        @if($post->category_id == 1)
+                            <span>Long Trekking</span>
+                        @elseif($post->category_id == 2)
+                            <span>Short Trekking</span>
+                        @else
+                            <span>Tour</span>
+                        @endif
                     </td>
                     <td>
                         <a href="{{ route('posts.edit', [ 'id'=>$post->id]) }}" class='btn btn-info'>Edit

@@ -10,7 +10,7 @@
     <div class="row">
         <div class="col-lg-8">
             <h1>Edit Post</h1>
-            <form action="{{ route('posts.update',['id'=>1]) }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('posts.update',['id'=>$post->id]) }}" method="post" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="form-group">
@@ -38,7 +38,7 @@
                 </select>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-success" type="submit">Click to Create</button>
+                    <button class="btn btn-success" type="submit">Click to Edit</button>
                 </div>
             </form>
         </div>

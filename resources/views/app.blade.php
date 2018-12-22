@@ -22,6 +22,7 @@
     <script src="{{ asset('js/wow.js') }}"></script>
     <script src="{{ asset('js/scripts.js') }}"></script>
     <script src="{{ asset('js/toastr.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
     <script>
     @if(Session::has('success'))
         toastr.success(" {{ Session::get('success') }}")

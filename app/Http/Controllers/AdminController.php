@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Admin;
+use App\Contact;
 use Session;
 
 
@@ -12,7 +13,7 @@ class AdminController extends Controller
 {
     public function getLoginForm()
     {
-        return view('login');
+        return view('admin.login');
     }
     public function login(Request $request)
     {
@@ -30,8 +31,7 @@ class AdminController extends Controller
         Session::flash('error', 'Invalid Credentials, Please Try Again');
         return redirect()->back();
     }
-    
-    
+        
     public function logout()
     {
         session(['is_admin' => '']);
@@ -40,6 +40,22 @@ class AdminController extends Controller
 
         return redirect()->route('home');
 
+    }
+
+    public function getMessages()
+    {
+        $contacts = Contact::all();
+        return view('admin.contacts')->withContacts($contacts);
+    }
+
+    public function deleteMessage($id)
+    {
+        $message = Contact::find($id);
+        $message->delete();
+
+        Session::flash('success', 'Message Successfully Deleted');
+
+        return redirect()->back();
     }
     
 }

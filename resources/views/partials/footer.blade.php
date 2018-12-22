@@ -13,22 +13,19 @@
             <div class="col-xs-6 col-sm-3 column">
                 <h4>About</h4>
                 <ul class="list-unstyled">
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Delivery Information</a></li>
+                    <li><a href="contact">Contact Us</a></li>
+                    <li><a href="#">Service Information</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms &amp; Conditions</a></li>
                 </ul>
             </div>
-            <div class="col-xs-12 col-sm-3 column">
-                <h4>Stay Posted</h4>
-                <form>
-                    <div class="form-group">
-                        <input type="text" class="form-control" title="No spam, we promise!" placeholder="Tell us your email">
-                    </div>
-                    <div class="form-group">
-                        <button class="btn btn-primary" data-toggle="modal" data-target="#alertModal" type="button">Subscribe for updates</button>
-                    </div>
-                </form>
+            <div class="col-xs-6 col-sm-3 column">
+                <h4>Activities</h4>
+                <ul class="list-unstyled">
+                    <li><a href="contact">Long Trekking</a></li>
+                    <li><a href="#">Short Trekking</a></li>
+                    <li><a href="#">Tour</a></li>
+                </ul>
             </div>
             <div class="col-xs-12 col-sm-3 text-right">
                 <h4>Follow</h4>

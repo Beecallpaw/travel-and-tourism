@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Session;
 
 class IsAdmin
 {
@@ -18,6 +19,7 @@ class IsAdmin
         if(session('is_admin') === 'admin'){
             return $next($request);
         }
+        Session::flash('error', 'Please Login to access these routes');
         return redirect()->route('home');
     }
 }
