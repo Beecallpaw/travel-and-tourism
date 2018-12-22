@@ -3,11 +3,6 @@
 @section('content')
 
 <form action="login" method="post" id="admin-form">
-    @if (session('error'))
-    <div class="alert alert-danger" role="alert">
-        {{ session('error') }}
-    </div>
-    @endif
     @csrf
     <h2 style="text-decoration:underline">Admin Login Form</h2>
     <br>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App\Post;
+use App\Category;
 
 class PostController extends Controller
 {
@@ -16,6 +17,7 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::all();
+
         return view('posts.index')->withPosts($posts);
     }
 
@@ -26,7 +28,12 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $categories = Category::all();
+        if($categories->count()==0){
+            Session::flash('info', 'First create a category to make a post');
+            return redirect()->route('categories.create');
+        }
+        return view('posts.create')->withCategories($categories);
     }
 
     /**
@@ -37,7 +44,29 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->back();
+        $this->validate($request, [
+            "name"          => "required",
+            "image"         => "required|image",
+            "description"   => "required",
+            "itinerary"     => "required",
+            "category_id"   => "required"
+        ]);
+        $image = $request->image;
+        $image_name = time().$image->getClientOriginalName();
+        $image->move('assets/images', $image_name);
+        
+        $post = Post::create([
+            "name"          => $request->name,
+            "image"         => 'assets/images/'. $image_name,
+            "description"   => $request->description,
+            "itinerary"     => $request->itinerary,
+            "category_id"   => $request->category_id,
+            'slug'          => str_slug($request->name),
+        ]);
+
+        Session::flash('success', 'Post Created Successfully.');
+        return redirect()->route('posts.index');
+        
     }
 
     /**
@@ -59,7 +88,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        return view('posts.edit');
+        $post = Post::find($id);
+        $categories = Category::all();
+        
+        return view('posts.edit', compact('post', 'categories'));
     }
 
     /**
@@ -71,7 +103,31 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return redirect()->back();
+        $this->validate($request,[
+            "name"          => "required",
+            "description"   => "required",
+            "itinerary"     => "required",
+            "category_id"   => "required",
+        ]);
+        $post = Post::find($id);
+
+        if($request->hasFile('image')){
+            $image = $request->image;
+            $image_name = time().$image->getClientOriginalName();
+            $image->move('assets/images', $image_name);
+
+            $post->image = 'assets/images/'. $image_name;
+        }
+
+            $post->name         = $request->name;
+            $post->description  = $request->description;
+            $post->itinerary    = $request->itinerary;
+            $post->category_id  = $request->category_id;
+
+            $post->save();
+            
+            Session::flash('success', 'Post Updated Successfully.');
+            return redirect()->route('posts.index');
     }
 
     /**
@@ -82,6 +138,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+        $post->delete();
+
+        Session::flash('success','Post Successfully Deleted');
+        return redirect()->back();
     }
 }

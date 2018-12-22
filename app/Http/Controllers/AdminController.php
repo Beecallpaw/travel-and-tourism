@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Admin;
+use Session;
 
 
 class AdminController extends Controller
@@ -22,16 +23,23 @@ class AdminController extends Controller
         $password = $request->get('password');
         if ($dbUsername=== $username && Hash::check($password, $dbPassword)) {
             session(['is_admin' =>'admin']);
-            return view('admin.home')->with('message', 'Login Successful. Welcome Admin');
-        }
-        return redirect()->back()->with('error','Login Failed. Please Try Again');
+            Session::flash('success', 'Login Successful. Welcome Admin');
 
+            return view('admin.home');
+        }
+        Session::flash('error', 'Invalid Credentials, Please Try Again');
+        return redirect()->back();
     }
+    
     
     public function logout()
     {
         session(['is_admin' => '']);
+        
+        Session::flash('success', 'Logout Successful');
+
         return redirect()->route('home');
+
     }
     
 }

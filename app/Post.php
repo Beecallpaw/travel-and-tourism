@@ -6,5 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $fillable = ['name', 'image', 'description', 'itinerary', 'category_id'];   
+
+    protected $fillable = [
+        'name', 'image', 'description', 'itinerary', 'category_id','slug'
+    ];
+
+    public function getImageAttribute($image)
+    {
+        return asset($image);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
+    }
 }

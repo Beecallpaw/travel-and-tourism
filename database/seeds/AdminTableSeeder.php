@@ -17,5 +17,5 @@ class AdminTableSeeder extends Seeder
             'username'=> 'admin_321',
             'password'=> Hash::make('tr@vel@dmin213'),
         ]);
-    }
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 }

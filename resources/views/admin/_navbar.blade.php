@@ -14,6 +14,9 @@
                     <a class="page-scroll" href="{{route('posts.index')}}">Posts</a>
                 </li>
                 <li>
+                    <a class="page-scroll" href="{{route('categories.index')}}">Categories</a>
+                </li>
+                <li>
                     <a class="page-scroll" href="messages">Messages</a>
                 </li>
             </ul>
