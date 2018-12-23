@@ -42,6 +42,7 @@ class CategoryController extends Controller
         ]);
         $category = new Category;
         $category->type = $request->type;
+        $category->slug = str_slug($category->type);
         $category->save();
 
         Session::flash('success', 'Category Successfully Edited');

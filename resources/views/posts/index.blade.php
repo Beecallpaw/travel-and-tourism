@@ -1,4 +1,7 @@
 @extends('app') 
+@section('styles')
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+@endsection
 @section('title', 'All Posts') 
 @section('content')
 @include('admin._navbar')
@@ -20,7 +23,7 @@
             </tr>
         </thead>
         <tbody>
-            @if ($posts->count() > 0)
+            @if (count($posts) > 0)
                 @foreach ($posts as $post)
                 <tr>
                     <td>
@@ -33,19 +36,13 @@
                         {!! str_limit($post->description, $limit=100, $end=' ... ') !!}
                     </td>
                     <td>
-                        {!! str_limit($post->itinerary, $limit=100, $end=' ... ') !!}
+                       Contains the journey Data
                     </td>
                     <td> 
-                        @if($post->category_id == 1)
-                            <span>Long Trekking</span>
-                        @elseif($post->category_id == 2)
-                            <span>Short Trekking</span>
-                        @else
-                            <span>Tour</span>
-                        @endif
+                        {{$post->type}}
                     </td>
                     <td>
-                        <a href="{{ route('posts.edit', [ 'id'=>$post->id]) }}" class='btn btn-info'>Edit
+                        <a href="{{ route('posts.edit', [ 'slug'=>$post->slug]) }}" class='btn btn-info'>Edit
                         </a>
                     </td>
                     <td>

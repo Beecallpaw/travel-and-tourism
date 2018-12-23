@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Session;
 use App\Post;
+use DB;
 use App\Category;
 
 class PostController extends Controller
@@ -16,7 +17,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = DB::table('posts')
+                    ->join('categories', 'posts.category_id', '=', 'categories.id')
+                    ->select('posts.*', 'categories.type')
+                    ->get();
+        $posts = $posts->toArray();
 
         return view('posts.index')->withPosts($posts);
     }
@@ -86,9 +91,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        $post = Post::find($id);
+        $post = Post::where('slug',$slug)->first();
         $categories = Category::all();
         
         return view('posts.edit', compact('post', 'categories'));

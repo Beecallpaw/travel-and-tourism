@@ -1,5 +1,17 @@
 @extends('app') 
-@section('title', 'Edit Post') 
+@section('styles')
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+    <style>
+    .note-editable{
+        background-color: #36333d !important;
+        color: whitesmoke !important;
+    }
+    p{
+        background-color:transparent !important;
+    }
+    </style>
+@endsection
+@section('title', 'Edit Post')
 @section('content')
     @include('admin._navbar')
     @include('partials.margin')
@@ -27,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <label for="itinerary">Itinerary</label>
-                    <textarea name="itinerary" cols="5" rows="5" class="form-control" id="itinerary">{{$post->itinerary}}</textarea>
+                    <textarea name="itinerary" style="color:black !important;" cols="5" rows="5" class="form-control" id="itinerary">{{$post->itinerary}}</textarea>
                 </div>
                 <div class="form-group">
                     <label for="category">Select a Category</label>
@@ -44,4 +56,18 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#itinerary').summernote({
+                height: 150,
+                toolbar: [ 
+                ['style', ['bold', 'italic', 'underline', 'clear']], ['font', ['strikethrough',
+                'superscript', 'subscript']], ['fontsize', ['fontsize']], ['color', ['color']], ['para', ['ul', 'ol', 'paragraph']], ['height',
+                ['height']] ]
+            });
+        });
+    </script>
 @endsection

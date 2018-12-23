@@ -12,35 +12,31 @@
         <div class="navbar-collapse collapse" id="bs-navbar">
             <ul class="nav navbar-nav">
                 <li>
-                    <a class="page-scroll" href="gallery">Gallery</a>
+                    <a class="page-scroll" href="{{route('gallery')}}">Gallery</a>
                 </li>
                 <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown">
                         Available packages <span class="caret"></span>
                     </a>
                     <ul style="background-color:darkgray" class="dropdown-menu">
+                        @foreach ($categories as $category)
                         <li>
-                            <a class="dropdown-item" href="{{url('long-trekking')}}">Long Trekking</a>
+                            <a class="dropdown-item" href="{{ route('category', ['slug'=>$category->slug]) }}">{{$category->type}}</a>
                         </li>
-                        <li>
-                            <a class="dropdown-item" href="{{url('short-trekking')}}">Short Trekking</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{url('tour')}}">Tour</a>
-                        </li>
+                        @endforeach
                     </ul>
                     </li>
                 <li>
-                    <a class="page-scroll" href="places">Hot Places</a>
+                    <a class="page-scroll" href="{{route('places')}}">Hot Places</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="booking">Booking</a>
+                    <a class="page-scroll" href="{{route('booking')}}">Booking</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="about">About</a>
+                    <a class="page-scroll" href="{{route('about')}}">About</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="contact">Contact</a>
+                    <a class="page-scroll" href="{{route('contact')}}">Contact</a>
                 </li>
             </ul>
         </div>

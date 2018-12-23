@@ -41,3 +41,5 @@
     </table>
 </div>
 @endsection
+@section('scripts')
+@endsection
