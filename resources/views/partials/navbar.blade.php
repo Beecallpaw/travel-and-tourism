@@ -30,9 +30,6 @@
                     <a class="page-scroll" href="{{route('places')}}">Hot Places</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="{{route('booking')}}">Booking</a>
-                </li>
-                <li>
                     <a class="page-scroll" href="{{route('about')}}">About</a>
                 </li>
                 <li>

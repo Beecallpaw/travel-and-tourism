@@ -3,7 +3,7 @@
 @include('admin._navbar')
 @include('partials.margin')
 <div class="container">
-    <table id="contact_table" class="table table-bordered">
+    <table id="contact-table" class="table table-bordered">
         <thead>
             <tr>
                 <th>Name</th>

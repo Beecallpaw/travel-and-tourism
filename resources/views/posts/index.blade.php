@@ -10,7 +10,7 @@
     <a href="{{route('posts.create')}}" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus"></span> Create A New Post
     </a>
-    <table id="contact_table" class="table table-bordered">
+    <table id="contact-table" class="table table-bordered">
         <thead>
             <tr>
                 <th>Post Title</th>

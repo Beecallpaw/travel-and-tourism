@@ -7,7 +7,7 @@
     <a href="{{route('categories.create')}}" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus"></span> Create a New Category
     </a>
-    <table id="contact_table" class="table table-bordered">
+    <table id="contact-table" class="table table-bordered">
         <thead>
             <tr>
                 <th>Category Name</th>

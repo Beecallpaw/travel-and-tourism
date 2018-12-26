@@ -21,8 +21,9 @@ class HomePageController extends Controller
     }
     public function home()
     {
+        $featured = Post::where('featured', '1')->get();
         $categories = $this->allCategories();
-        return view('home.welcome')->withCategories($categories);
+        return view('home.welcome', compact('featured', 'categories'));
     }
     public function gallery()
     {
