@@ -7,11 +7,11 @@
     <img class="mySlides" src="http://lorempixel.com/993/493">
 </div>
 <div id="featured-section">
-    <h3>Featured Packages</h3>
+    <h2>Featured Packages</h2>
     @foreach ($featured as $post)
-        <ul>
-        <a href="#">{{$post->name}}</a>
-        </ul>
+        <li>
+            <a href="{{route('show.category',['slug'=>$post->slug])}}"><h5>{{$post->name}}</h5></a>
+        </li>
     @endforeach
 </div>
 <hr>

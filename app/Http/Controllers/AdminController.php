@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Admin;
 use App\Contact;
+use App\Booking;
 use Session;
 
 
@@ -54,6 +55,22 @@ class AdminController extends Controller
         $message->delete();
 
         Session::flash('success', 'Message Successfully Deleted');
+
+        return redirect()->back();
+    }
+    
+    public function getBookings()
+    {
+        $bookings = Booking::all();
+        return view('admin.bookings')->withBookings($bookings);
+    }
+
+     public function deleteBooking($id)
+    {
+        $booking = Booking::find($id);
+        $booking->delete();
+
+        Session::flash('success', 'Booking Successfully Deleted');
 
         return redirect()->back();
     }

@@ -19,6 +19,9 @@
                 <li>
                     <a class="page-scroll" href="messages">Messages</a>
                 </li>
+                <li>
+                    <a class="page-scroll" href="bookings">Bookings</a>
+                </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>

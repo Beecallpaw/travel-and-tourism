@@ -1,11 +1,4 @@
 @extends('app')
- 
-@section('styles')
-    <style>
-        p {background-color: transparent !important;}
-        a:link {text-decoration: none !important;}
-    </style>
-@endsection
 
 @section('title', $title) 
 
@@ -15,17 +8,15 @@
     <div class="container">
         @if(!empty($posts))
             <div class="row">
-                <div class="col-md-8">
-                    @foreach ($posts as $post)
+                @foreach ($posts as $post)
+                <div class="col-md-6">
                     <h1>{{$post->name}}</h1>
-                    <img src="{{ asset($post->image) }}" height="300px" width="600px" alt="{{$post->name}}">
+                    <img src="{{ asset($post->image) }}" height="300px" width="400px" alt="{{$post->name}}">
                     <h3>Description</h3>
-                    <p>{{$post->description}}</p>
-                    <h3>Itinerary</h3>
-                    <p>{!!$post->itinerary!!}</p>
-                    @endforeach
-                    <hr>
+                    <p>{!! str_limit($post->description, $limit=50, $end=' ... ') !!}</p>                    
+                <a href="{{route('show.category', ['slug'=>$post->slug])}}">See more</a>
                 </div>
+                @endforeach
             </div>
         @else 
         <p>Sorry No data available for this category. Contact us for more information</p>

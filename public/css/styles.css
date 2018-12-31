@@ -135,7 +135,18 @@ footer {
     top: 100px;
     right: 50px;
 }
+#featured-section>li{
+    list-style: none;
+    text-align: center;
+}
+#featured-section>li>a{
+    color:white;
+}
 
+#booking-form{
+    margin-left: 320px;
+    text-align: center;
+}
 .no-padding {
     padding: 0;
 }
