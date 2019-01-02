@@ -50,6 +50,10 @@
                 </select>
                 </div>
                 <div class="form-group">
+                    <label for="featured">Featured </label>
+                    <input style="margin-left:10px" type="checkbox" {!! $post->featured === 1 ? 'checked': '' !!} name="featured" id="featured">
+                </div>
+                <div class="form-group">
                     <button class="btn btn-success" type="submit">Click to Edit</button>
                 </div>
             </form>

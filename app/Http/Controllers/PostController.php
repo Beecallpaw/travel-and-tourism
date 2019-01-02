@@ -59,7 +59,7 @@ class PostController extends Controller
         $image = $request->image;
         $image_name = time().$image->getClientOriginalName();
         $image->move('assets/images', $image_name);
-        
+        $featured = isset($request->featured) ? 1 : 0;
         $post = Post::create([
             "name"          => $request->name,
             "image"         => 'assets/images/'. $image_name,
@@ -67,6 +67,7 @@ class PostController extends Controller
             "itinerary"     => $request->itinerary,
             "category_id"   => $request->category_id,
             "slug"          => str_slug($request->name),
+            "featured"      => $featured
         ]);
 
         Session::flash('success', 'Post Created Successfully.');

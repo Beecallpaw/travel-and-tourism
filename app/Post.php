@@ -8,7 +8,7 @@ class Post extends Model
 {
 
     protected $fillable = [
-        'name', 'image', 'description', 'itinerary', 'category_id','slug'
+        'name', 'image', 'description', 'itinerary', 'category_id', 'slug', 'featured'
     ];
 
     public function getImageAttribute($image)

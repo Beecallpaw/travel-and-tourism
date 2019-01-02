@@ -14,15 +14,18 @@ class CategoriesTableSeeder extends Seeder
         DB::table('categories')->insert([
             [
                 'id'    => 1,
-                'type'  => 'long trekking'
+                'type'  => 'Long Trekking',
+                'slug'  => 'long_trekking'
             ],
             [
                 'id'    => 2,
-                'type'  => 'short trekking'
+                'type'  => 'Short Trekking',
+                'slug'  => 'short_trekking'
             ],
             [
                 'id'    => 3,
-                'type'  => 'tour'
+                'type'  => 'tour',
+                'slug'  => 'tour'
             ],
         ]);
     }

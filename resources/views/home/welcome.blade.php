@@ -4,22 +4,32 @@
     @include('partials.navbar')
     @include('partials.margin')
 <div id="image-slider">
-    <img class="mySlides" src="http://lorempixel.com/993/493">
-</div>
-<div id="featured-section">
-    <h2>Featured Packages</h2>
-    @foreach ($featured as $post)
-        <li>
-            <a href="{{route('show.category',['slug'=>$post->slug])}}"><h5>{{$post->name}}</h5></a>
-        </li>
-    @endforeach
+    <img class="mySlides" src="{{asset('assets/pics/Pokhara.jpg')}}">
+    <img class="mySlides" src="{{asset('assets/pics/Lumbini.jpg')}}">
+    <img class="mySlides" src="{{asset('assets/pics/tilicho.jpg')}}">
+    <img class="mySlides" src="{{asset('assets/pics/gumba.jpg')}}">
+    <img class="mySlides" src="{{asset('assets/pics/Kathmandu-Durbar-Square-Patan.jpg')}}">
 </div>
 <hr>
+<div id="featured-section" >
+    <h2>Featured Packages</h2>
+    <div class="row">
+        @foreach ($featured as $post)
+        <div class="col-md-2 col-md-offset-1">
+            <a href="{{route('show.category',['slug'=>$post->slug])}}">
+            <img src="{{$post->image}}" alt="{{$post->name}}" height="150px" width="200px">
+            <h4>{{$post->name}}</h4>
+            </a>
+        </div>
+    @endforeach
+</div>
+</div>
+{{-- <hr>
 <aside id="book-now">
     <a href="{{route('booking')}}">
             <img src="{{asset('assets/pics/bookimg.png')}}" alt="image">
-        </a>
-</aside>
+    </a>
+</aside> --}}
     @include('partials.footer')
 @endsection
  

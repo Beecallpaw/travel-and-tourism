@@ -51,6 +51,10 @@
                 </select>
             </div>
             <div class="form-group">
+                <label for="featured">Featured </label>
+                <input style="margin-left:10px" type="checkbox" name="featured" id="featured">
+            </div>
+            <div class="form-group">
                 <button class="btn btn-success" type="submit">Click to Create</button>
             </div>
         </form>

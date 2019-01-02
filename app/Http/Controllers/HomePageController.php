@@ -63,17 +63,11 @@ class HomePageController extends Controller
 
     }
  
-    public function places()
+    public function booking($name)
     {
         $categories = $this->allCategories();
         
-        return view('home.places', compact('categories'));
-    }
-    public function booking()
-    {
-        $categories = $this->allCategories();
-        
-        return view('home.booking', compact('categories'));
+        return view('home.booking', compact('categories','name'));
     }
     public function storeBooking(Request $request)
     {

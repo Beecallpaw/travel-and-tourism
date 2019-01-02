@@ -4,10 +4,10 @@
             <div class="col-xs-6 col-sm-3 column">
                 <h4>Information</h4>
                 <ul class="list-unstyled">
-                    <li><a href="">Products</a></li>
-                    <li><a href="">Services</a></li>
-                    <li><a href="">Benefits</a></li>
-                    <li><a href="">Developers</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Benefits</a></li>
+                    <li><a href="#">Developers</a></li>
                 </ul>
             </div>
             <div class="col-xs-6 col-sm-3 column">
@@ -22,9 +22,9 @@
             <div class="col-xs-6 col-sm-3 column">
                 <h4>Activities</h4>
                 <ul class="list-unstyled">
-                    <li><a href="contact">Long Trekking</a></li>
-                    <li><a href="#">Short Trekking</a></li>
-                    <li><a href="#">Tour</a></li>
+                    <li><a href="{{route('category',['slug'=>'long_trekking'])}}">Long Trekking</a></li>
+                    <li><a href="{{route('category',['slug'=>'short_trekking'])}}">Short Trekking</a></li>
+                    <li><a href="{{route('category',['slug'=>'tour'])}}">Tour</a></li>
                 </ul>
             </div>
             <div class="col-xs-12 col-sm-3 text-right">

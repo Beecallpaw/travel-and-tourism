@@ -22,7 +22,7 @@
         </div>
     <div class="col-md-8">
             <label></label>
-            <input value="{{old('place')}}" type="text" required name="place" class="form-control" placeholder="Place to Go">
+            <input style="background-color:#36333d !important;" value="{{$name}}" type="text" required name="place" class="form-control" placeholder="Place to Go" readonly="true">
         </div>
     <div class="col-md-8">
         <label></label>
