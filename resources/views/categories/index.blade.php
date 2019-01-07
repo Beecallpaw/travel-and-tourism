@@ -1,4 +1,4 @@
-@extends('layouts.app') 
+@extends('app') 
 @section('title', 'All Categories') 
 @section('content')
     @include('admin._navbar')
