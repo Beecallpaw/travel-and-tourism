@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomePageController@home')->name('home');
+Route::get('/','HomePageController@home')->name('home');
 Route::get('gallery', 'HomePageController@gallery')->name('gallery');
 Route::get('booking/{name}', 'HomePageController@booking')->name('booking');
 Route::post('booking', 'HomePageController@storebooking');

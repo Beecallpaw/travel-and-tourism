@@ -120,13 +120,13 @@ footer {
 }   
 #image-slider{
     height: 600px;
-    width: 1200px;
+    width: 1270px;
     margin-left: 20px;
     border: 3px solid wheat;
 }
 #image-slider>img{
     height: 595px;
-    width: 1195px;
+    width: 1265px;
 }
 
 #booking-form{

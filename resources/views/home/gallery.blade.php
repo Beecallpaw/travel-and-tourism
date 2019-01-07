@@ -1,12 +1,8 @@
-@extends('app')
-@section('styles')
-    <link rel="stylesheet" href="{{asset('css/slider.css')}}">
-@endsection
-@section('title', 'Gallery')
+@extends('layouts.app')
+
+@section('title', 'Gallery') 
 @section('content')
-    @include('partials.navbar')
-    @include('partials.margin')
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             @foreach($posts as $post)
             <div class="col-md-4 col-md-offset-1">

@@ -1,17 +1,19 @@
-@extends('app') 
+@extends('layouts.app') 
 @section('styles')
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
-    <style>
-    .note-editable{
+<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.css" rel="stylesheet">
+<style>
+    .note-editable {
         background-color: #36333d !important;
         color: whitesmoke !important;
     }
-    p{
-        background-color:transparent !important;
+
+    p {
+        background-color: transparent !important;
     }
-    </style>
+</style>
 @endsection
-@section('title', 'Edit Post')
+ 
+@section('title', 'Edit Post') 
 @section('content')
     @include('admin._navbar')
     @include('partials.margin')
@@ -23,11 +25,10 @@
         <div class="col-lg-8">
             <h1>Edit Post</h1>
             <form action="{{ route('posts.update',['id'=>$post->id]) }}" method="post" enctype="multipart/form-data">
-                @csrf
-                @method('PUT')
+                @csrf @method('PUT')
                 <div class="form-group">
                     <label for="name">Name</label>
-                <input value="{{$post->name}}" type="text" name="name" class="form-control" id="name">
+                    <input value="{{$post->name}}" type="text" name="name" class="form-control" id="name">
                 </div>
                 <div class="form-group">
                     <label for="image">Image</label>
@@ -51,7 +52,8 @@
                 </div>
                 <div class="form-group">
                     <label for="featured">Featured </label>
-                    <input style="margin-left:10px" type="checkbox" {!! $post->featured === 1 ? 'checked': '' !!} name="featured" id="featured">
+                    <input style="margin-left:10px" type="checkbox" {!! $post->featured === 1 ? 'checked': '' !!} name="featured"
+                    id="featured">
                 </div>
                 <div class="form-group">
                     <button class="btn btn-success" type="submit">Click to Edit</button>
@@ -61,10 +63,11 @@
     </div>
 </div>
 @endsection
+ 
 @section('scripts')
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
-    <script>
-        $(document).ready(function() {
+<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.11/summernote.js"></script>
+<script>
+    $(document).ready(function() {
             $('#itinerary').summernote({
                 height: 150,
                 toolbar: [ 
@@ -73,5 +76,5 @@
                 ['height']] ]
             });
         });
-    </script>
+</script>
 @endsection

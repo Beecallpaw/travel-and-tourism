@@ -1,7 +1,7 @@
-@extends('app') 
+@extends('layouts.app') 
 @section('title','Home') 
 @section('content')
-    @include('partials.navbar')
+    @include('layouts.partials.navbar')
     @include('partials.margin')
 <div id="image-slider">
     <img class="mySlides" src="{{asset('assets/pics/Pokhara.jpg')}}">
@@ -11,7 +11,7 @@
     <img class="mySlides" src="{{asset('assets/pics/Kathmandu-Durbar-Square-Patan.jpg')}}">
 </div>
 <hr>
-<div id="featured-section" >
+<div id="featured-section">
     <h2>Featured Packages</h2>
     <div class="row">
         @foreach ($featured as $post)
@@ -21,10 +21,11 @@
             <h4>{{$post->name}}</h4>
             </a>
         </div>
-    @endforeach
+        @endforeach
+    </div>
 </div>
-</div>
-{{-- <hr>
+{{--
+<hr>
 <aside id="book-now">
     <a href="{{route('booking')}}">
             <img src="{{asset('assets/pics/bookimg.png')}}" alt="image">

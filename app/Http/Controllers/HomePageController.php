@@ -20,21 +20,21 @@ class HomePageController extends Controller
     {
         return Post::all();
     }
-    public function home()
+    public function featuredPosts()
     {
         $featured = Post::where('featured', '1')->get();
-        // $category = $featured->map(function($f){return $f->category_id;});
+         foreach ($featured as $key => $value) {
+            $featured[$key]['category'] = DB::table('categories')->select('slug')->where('categories.id', '=', $value->category_id)->get();
+        }
+        return $featured;
+    }
 
-        foreach ($featured as $key => $value) {
-            $featured[$key]['category'] = DB::table('categories')->select('slug')->where('categories.id','=' ,$value->category_id)->get();
-        }
-        foreach ($featured as $key => $value) {
-            $x =$value->category;
-            $y = $x->toArray();
-        }
+    public function home()
+    {
+        $featured = $this->featuredPosts();
         $categories = $this->allCategories();
         
-        return view('home.welcome', compact('featured', 'categories'));
+        return view('homepage.home', compact('featured', 'categories'));
     }
     public function gallery()
     {

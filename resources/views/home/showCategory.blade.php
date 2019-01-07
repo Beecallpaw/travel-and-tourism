@@ -1,4 +1,4 @@
-@extends('app') 
+@extends('layouts.app') 
 @section('styles')
 <style>
     p {
@@ -13,7 +13,7 @@
  
 @section('title', $post->name) 
 @section('content')
-    @include('partials.navbar')
+    @include('layouts.partials.navbar')
     @include('partials.margin')
 <div class="container">
     <div class="row">
@@ -29,7 +29,7 @@
             <p>{!!$post->itinerary!!}</p>
         </div>
         <aside>
-        <a href="{{route('booking',['name'=>$post->name])}}">BOOK NOW</a>
+            <a href="{{route('booking',['name'=>$post->name])}}">BOOK NOW</a>
         </aside>
     </div>
 </div>

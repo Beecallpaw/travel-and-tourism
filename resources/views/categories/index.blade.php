@@ -1,8 +1,8 @@
-@extends('app') 
+@extends('layouts.app') 
 @section('title', 'All Categories') 
 @section('content')
-@include('admin._navbar')
-@include('partials.margin')
+    @include('admin._navbar')
+    @include('partials.margin')
 <div class="container">
     <a href="{{route('categories.create')}}" class="btn btn-primary">
         <span class="glyphicon glyphicon-plus"></span> Create a New Category
@@ -16,8 +16,7 @@
             </tr>
         </thead>
         <tbody>
-            @if($categories->count()>0)
-            @foreach ($categories as $category)
+            @if($categories->count()>0) @foreach ($categories as $category)
             <tr>
                 <td>
                     {{$category->type}}
@@ -28,8 +27,7 @@
                 </td>
                 <td>
                     <form action="{{ route('categories.destroy', [ 'id'=>$category->id ]) }}" method="POST">
-                        @method('DELETE')
-                        @csrf                    
+                        @method('DELETE') @csrf
                         <button type="submit" class='btn btn-danger'>Delete</a>
                     </form>
                 </td>
