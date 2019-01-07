@@ -15,22 +15,24 @@
 @section('content')
     @include('layouts.partials.navbar')
     @include('partials.margin')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <h1 style="text-align:center">{{$post->name}}</h1>
+<section id="content">
+    <section class="section-padding">
+        <div class="container">
+            <div class="row showcase-section">
+                <div class="col-md-6">
+                <img src="{{ asset($post->image) }}" height="350px" id="myImg" width="510px" alt="{{$post->name}}">
+                </div>
+                <div class="col-md-6">
+                    <div class="about-text">
+                        <h3>{{$post->name}}</h3>
+                        <p style="font-size:1.2em;line-height:1.3em;">{{$post->description}}</p>
+                    </div>
+                </div>
+            </div>
             <hr>
-            <img src="{{ asset($post->image) }}" height="400px" width="750px" alt="{{$post->name}}">
-            <hr>
-            <h3>Description</h3>
-            <h4 style="line-height:1.4em;">{{$post->description}}</h4>
-            <hr>
-            <h3>Itinerary</h3>
+            <h3>Travel Plan</h3>
             <p>{!!$post->itinerary!!}</p>
         </div>
-        <aside>
-            <a href="{{route('booking',['name'=>$post->name])}}">BOOK NOW</a>
-        </aside>
-    </div>
-</div>
+    </section>
+</section>
 @endsection

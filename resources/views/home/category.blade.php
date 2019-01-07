@@ -5,14 +5,19 @@
     @include('partials.margin')
 <div class="container">
     @if(!empty($posts))
-    <div class="row">
+    <div class="row box-section">
         @foreach ($posts as $post)
-        <div class="col-md-6">
-            <h1>{{$post->name}}</h1>
-            <img src="{{ asset($post->image) }}" height="300px" width="400px" alt="{{$post->name}}">
-            <h3>Description</h3>
-            <p>{!! str_limit($post->description, $limit=50, $end=' ... ') !!}</p>
-            <a href="{{route('show.category', ['slug'=>$post->slug])}}">See more</a>
+        <div class="col-md-4">
+            <div class="box-content">
+                <a href=" {{route('show.category',['slug'=>$post->slug])}} ">
+                    <img height="200px" width="335px" src="{{asset($post->image)}}" alt="{{$post->name}}">   
+                    <h3>{{$post->name}} <span class="price pull-right">$23</span></h3>
+                    <strong>{{$post->name}}</strong>  
+                    <p>
+                        {!! str_limit($post->description, $limit=100, $end=' ... ') !!}
+                    </p>  
+                </a>
+            </div>
         </div>
         @endforeach
     </div>

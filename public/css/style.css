@@ -196,7 +196,7 @@ header .navbar-collapse  ul.navbar-nav {
 }
 header .navbar {min-height: 70px;padding: 18px 0;background: #161616;}
 .home-page header .navbar-default{
-    background: rgb(15, 15, 15);
+    background: rgb(64, 72, 192);
     position: absolute;
     width: 100%;
 }
@@ -839,7 +839,6 @@ form#commentform textarea {
 
 .about-text h3 {
 	font-size: 22px;
-	padding-bottom: 20px;
 }
 
 .about-text .btn {
