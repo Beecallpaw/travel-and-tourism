@@ -22,11 +22,7 @@ class HomePageController extends Controller
     }
     public function featuredPosts()
     {
-        $featured = Post::where('featured', '1')->get();
-         foreach ($featured as $key => $value) {
-            $featured[$key]['category'] = DB::table('categories')->select('slug')->where('categories.id', '=', $value->category_id)->get();
-        }
-        return $featured;
+        return Post::where('featured', '1')->get();
     }
 
     public function home()
@@ -46,13 +42,10 @@ class HomePageController extends Controller
     public function getCategory($slug)
     {
         $category = Category::where('slug', $slug)->first();
-        $title = $category->type;
-        $slug1 = $category->slug;
-        $posts = DB::table('posts')->select()->where('posts.category_id', '=' , $category->id)->get();
-        $posts = $posts->toArray();
+        $posts = $category->posts;
         $categories = $this->allCategories();
         
-        return view('home.category', compact('posts','categories','title', 'slug1'));
+        return view('home.category', compact('posts','categories','category'));
     }
     public function showCategory($slug)
     {
@@ -95,7 +88,7 @@ class HomePageController extends Controller
     {
         $categories = $this->allCategories();
         
-        return view('home.contact',compact('categories'));
+        return view('home.contact', compact('categories'));
     }
 
     public function storeContact(Request $request)

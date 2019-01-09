@@ -36,3 +36,12 @@
     </section>
 </section>
 @endsection
+@section('scripts')
+<script>
+    $(document).ready(function(){
+        $('#myImg').click(function({
+            console.log('abc');
+        }))
+    })
+</script>
+@endsection

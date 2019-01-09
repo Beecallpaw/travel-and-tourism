@@ -1,5 +1,5 @@
 @extends('layouts.app') 
-@section('title', $title) 
+@section('title', $category->type) 
 @section('content')
     @include('layouts.partials.navbar')
     @include('partials.margin')
@@ -7,6 +7,7 @@
     @if(!empty($posts))
     <div class="row box-section">
         @foreach ($posts as $post)
+        {{-- {{ dd($post->slug) }} --}}
         <div class="col-md-4">
             <div class="box-content">
                 <a href=" {{route('show.category',['slug'=>$post->slug])}} ">

@@ -1,8 +1,7 @@
 @extends('layouts.app') 
 @section('title', 'Home') 
 @section('content')
-
-@include('homepage._slider')
+    @include('homepage._slider')
 
 <section id="call-to-action-2">
     <div class="container">
@@ -36,13 +35,12 @@
             @foreach ($featured as $post)
             <div class="col-md-4">
                 <div class="box-content">
-                    <a href="details.html">
-                                <img height="200px" width="335px" src="{{$post->image}}" alt="{{$post->name}}">   
-                                    <h3>{{$post->name}} <span class="price pull-right">$23</span></h3>
-                                    <strong>{{$post->name}}</strong>  
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam, incidunt eius magni provident, doloribus
-                                    </p>  
-                                </a>
+                    <a href="{{route('show.category',['slug'=>$post->slug])}}">
+                        <img height="200px" width="335px" src="{{$post->image}}" alt="{{$post->name}}">   
+                        <h3>{{$post->name}} <span class="price pull-right">$23</span></h3>
+                        <strong>{{$post->name}}</strong>  
+                        <p>{!! str_limit($post->description, $limit=125, $end=' ... ') !!}</p>  
+                    </a>
                 </div>
             </div>
             @endforeach
@@ -65,7 +63,8 @@
                     <div class="info-blocks-in">
                         <h3>Consulting</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam,
-                            incidunt</p>
+                            incidunt
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-4 info-blocks">
@@ -73,7 +72,8 @@
                     <div class="info-blocks-in">
                         <h3>Strategy</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam,
-                            incidunt</p>
+                            incidunt
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-4 info-blocks">
@@ -81,7 +81,8 @@
                     <div class="info-blocks-in">
                         <h3>Analysis</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam,
-                            incidunt</p>
+                            incidunt
+                        </p>
                     </div>
                 </div>
             </div>
@@ -91,7 +92,8 @@
                     <div class="info-blocks-in">
                         <h3>Investment</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam,
-                            incidunt</p>
+                            incidunt
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-4 info-blocks">
@@ -99,7 +101,8 @@
                     <div class="info-blocks-in">
                         <h3>Creative</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam,
-                            incidunt</p>
+                            incidunt
+                        </p>
                     </div>
                 </div>
                 <div class="col-sm-4 info-blocks">
@@ -107,7 +110,8 @@
                     <div class="info-blocks-in">
                         <h3>24/7 Support</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores quae porro consequatur aliquam,
-                            incidunt</p>
+                            incidunt
+                        </p>
                     </div>
                 </div>
             </div>
@@ -253,7 +257,8 @@
                         <blockquote>
                             <p>Lorem ipsum dolor met consectetur adipisicing. Aorem psum dolor met consectetur adipisicing sit
                                 amet, consectetur adipisicing elit, of them jean shorts sed magna aliqua. Lorem ipsum dolor
-                                met.</p>
+                                met.
+                            </p>
                         </blockquote>
                         <div class="carousel-info">
                             <img alt="" src="http://lorempixel.com/400/200/" class="pull-left">
@@ -275,5 +280,4 @@
     </div>
 
 </div>
-
 @endsection

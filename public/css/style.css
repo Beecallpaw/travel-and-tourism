@@ -196,7 +196,7 @@ header .navbar-collapse  ul.navbar-nav {
 }
 header .navbar {min-height: 70px;padding: 18px 0;background: #161616;}
 .home-page header .navbar-default{
-    background: rgb(64, 72, 192);
+    background: #385899;
     position: absolute;
     width: 100%;
 }

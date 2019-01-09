@@ -39,11 +39,11 @@
                     Contains the journey Data
                 </td>
                 <td>
-                    {{$post->type}}
+                    {{$post->category->type}}
                 </td>
                 <td>
                     <a href="{{ route('posts.edit', [ 'slug'=>$post->slug]) }}" class='btn btn-info'>Edit
-                        </a>
+                    </a>
                 </td>
                 <td>
                     <form action="{{ route('posts.destroy', [ 'id'=>$post->id ]) }}" method="POST">

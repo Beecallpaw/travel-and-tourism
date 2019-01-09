@@ -17,15 +17,15 @@
                     <a class="page-scroll" href="{{route('categories.index')}}">Categories</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="messages">Messages</a>
+                    <a class="page-scroll" href="{{route('messages')}}">Messages</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="bookings">Bookings</a>
+                    <a class="page-scroll" href="{{route('bookings')}}">Bookings</a>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="logout">Logout</a>
+                    <a class="page-scroll" href="{{route('logout')}}">Logout</a>
                 </li>
             </ul>
         </div>
