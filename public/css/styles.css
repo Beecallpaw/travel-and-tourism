@@ -111,13 +111,7 @@ footer {
 #contact-table{
     margin-top: 10px;
 }
-#book-now{
-    position: absolute;
-    top: 100px;
-}
-#book-now>a>img{
-    height: 200px;
-}   
+ 
 #image-slider{
     height: 600px;
     width: 1270px;

@@ -8,7 +8,7 @@ use App\Contact;
 use App\Post;
 use App\Category;
 use App\Booking;
-use DB;
+
 class HomePageController extends Controller
 {
     public function allCategories()
@@ -30,7 +30,7 @@ class HomePageController extends Controller
         $featured = $this->featuredPosts();
         $categories = $this->allCategories();
         
-        return view('homepage.home', compact('featured', 'categories'));
+        return view('home.home', compact('featured', 'categories'));
     }
     public function gallery()
     {

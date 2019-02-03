@@ -1,7 +1,7 @@
 @extends('layouts.app') 
 @section('title', 'Home') 
 @section('content')
-    @include('homepage._slider')
+    @include('home._slider')
 
 <section id="call-to-action-2">
     <div class="container">

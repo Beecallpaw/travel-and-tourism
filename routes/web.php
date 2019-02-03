@@ -23,7 +23,7 @@ Route::get('package/{name}', 'HomePageController@showCategory')->name('show.cate
 
 Route::get('admin', 'AdminController@getLoginForm')->name('login');
 Route::post('login', 'AdminController@login');
-Route::group(['middleware' => ['admin']], function () {
+Route::group(['middleware' => 'admin'], function () {
     Route::get('logout', 'AdminController@logout')->name('logout');
     Route::get('messages','AdminController@getMessages')->name('messages');
     Route::delete('message-delete/{id}', 'AdminController@deleteMessage')->name('contact.destroy');

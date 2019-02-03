@@ -7,7 +7,7 @@
     @csrf
     <div class="col-md-8">
         <label></label>
-        <input value="{{old('name')}}" type="text" name="name" required class="form-control" placeholder="Name">
+        <input value="{{old('name')}}" type="text" name="name" required class="form-control" placeholder="Enter Your Name">
     </div>
 
     <div class="col-md-8">
@@ -27,5 +27,14 @@
         <label></label>
         <button type="submit" class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
     </div>
+    @if ($errors->any())
+        <div class="col-md-8 alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
 </form>
 @endsection

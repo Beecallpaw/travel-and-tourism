@@ -22,6 +22,7 @@
                 <div class="col-md-6">
                 <img src="{{ asset($post->image) }}" height="350px" id="myImg" width="510px" alt="{{$post->name}}">
                 </div>
+            <a href="{{route('booking', ['name'=>$post->name])}}"><img id="book-img" src="{{asset('assets/pics/book.png')}}" alt="book"></a>
                 <div class="col-md-6">
                     <div class="about-text">
                         <h3>{{$post->name}}</h3>
