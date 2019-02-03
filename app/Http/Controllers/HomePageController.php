@@ -22,7 +22,7 @@ class HomePageController extends Controller
     }
     public function featuredPosts()
     {
-        return Post::where('featured', '1')->get();
+        return Post::featured()->get();
     }
 
     public function home()

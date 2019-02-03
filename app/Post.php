@@ -20,4 +20,9 @@ class Post extends Model
     {
         return $this->belongsTo('App\Category');
     }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
+    }
 }
